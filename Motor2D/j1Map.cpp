@@ -33,6 +33,19 @@ void j1Map::Draw()
 
 	// TODO 5: Prepare the loop to draw all tilesets + Blit
 
+	// Blit row
+	for (p2List_item<MapLayer*>* layer = data.layers.start; layer; layer = layer->next)
+	{
+		for (int i = 0; i < layer->data->height; i++)
+		{
+			for (int j = 0; layer->data->width; j++)
+			{
+
+			}
+		}
+	}
+
+
 		// TODO 9: Complete the draw function
 
 }
@@ -79,7 +92,7 @@ bool j1Map::CleanUp()
 	// Remove all layers
 
 
-	// Clean up the pugui tree
+	// Clean up the pugi tree
 	map_file.reset();
 
 	return true;
@@ -124,22 +137,21 @@ bool j1Map::Load(const char* file_name)
 		data.tilesets.add(set);
 	}
 
-	pugi::xml_node layers;
-	for (layers = map_file.child("map").child("layer"); layers && ret; layers = layers.next_sibling("layer"))
-	{
-		MapLayer *layer_toload = new MapLayer();
-
-		if (ret == true)
-		{
-			ret = LoadLayer(layers, layer_toload);
-		}
-
-		data.layers.add(layer_toload);
-	}
-
 	// TODO 4: Iterate all layers and load each of them
 	// Load layer info ----------------------------------------------
 
+	pugi::xml_node layers;
+	for (layers = map_file.child("map").child("layer"); layers && ret; layers = layers.next_sibling("layer"))
+	{
+		MapLayer *layer = new MapLayer();
+
+		if (ret == true)
+		{
+			ret = LoadLayer(layers, layer);
+		}
+
+		data.layers.add(layer);
+	}
 
 	if(ret == true)
 	{
@@ -317,7 +329,7 @@ bool j1Map::LoadLayer(pugi::xml_node& node, MapLayer* layer)
 	layer->height		=	node.attribute("height").as_uint(0);
 	layer->size			=	layer->width * layer->height;
 
-	layer->tile_gid		=	new uint(layer->size);
+	layer->tile_gid		=	new uint[layer->size];
 
 	memset(layer->tile_gid, 0, (sizeof(uint) * layer->size));
 

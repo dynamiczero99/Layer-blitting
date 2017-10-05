@@ -1,8 +1,4 @@
 ﻿  j1Map.cpp
-c:\users\joelcp\desktop\dev_class5_handout\motor2d\j1map.cpp(324): warning C4018: '<': no coinciden signed/unsigned
-  Generando código...
-  Omitiendo... (no se detectaron cambios relevantes)
-  j1Scene.cpp
-  j1App.cpp
-  Motor2D.vcxproj -> C:\Users\joelcp\Desktop\Dev_class5_handout\Debug\Motor 2D.exe
-  Motor2D.vcxproj -> C:\Users\joelcp\Desktop\Dev_class5_handout\Debug\Motor 2D.pdb (Partial PDB)
+c:\users\joelcp\documents\github\layer-blitting\motor2d\j1map.cpp(326): warning C4018: '<': no coinciden signed/unsigned
+  Motor2D.vcxproj -> C:\Users\joelcp\Documents\GitHub\Layer-blitting\Debug\Motor 2D.exe
+  Motor2D.vcxproj -> C:\Users\joelcp\Documents\GitHub\Layer-blitting\Debug\Motor 2D.pdb (Partial PDB)
